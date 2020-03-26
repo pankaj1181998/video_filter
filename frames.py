@@ -1,6 +1,7 @@
 # Importing all necessary libraries 
 import cv2 
 import os
+ import time 
 
 def create_frames(name : str):
 	dir_name = name.replace(".mp4","")
@@ -15,6 +16,7 @@ def create_frames(name : str):
 	#frame
 	currentframe = 0
 	while (True) :
+	   time.sleep(5)
 	   ret,frame = cam.read()
 
 	   if ret:
