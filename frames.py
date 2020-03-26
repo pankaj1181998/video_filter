@@ -3,12 +3,12 @@ import cv2
 import os
 
 def create_frames(name : str):
-	name.replace(".mp4","")
-	name.replace(".avi","")
+	dir_name = name.replace(".mp4","")
+	dir_name = name.replace(".avi","")
 	cam = cv2.VideoCapture("input/"+name)
 	try :
-	   if not os.path.exists("frames/"+name):
-	      os.makedirs("frames/"+ name)
+	   if not os.path.exists("frames/"+dir_name):
+	      os.makedirs("frames/"+ dir_name)
 	except OSError :
 	   print ('Error: Creating directory of data')
 
@@ -18,7 +18,7 @@ def create_frames(name : str):
 	   ret,frame = cam.read()
 
 	   if ret:
-	      name = 'frames/'+name+str(currentframe)+'.jpg'
+	      name = 'frames/'+dir_name+'/frame'+str(currentframe)+'.jpg'
 	      print ('Creating...' + name) 
 
 	      # Creating Images 
