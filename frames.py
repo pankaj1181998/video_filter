@@ -1,12 +1,12 @@
 # Importing all necessary libraries 
 import cv2 
 import os
- import time 
+import time 
 
 def create_frames(name : str):
 	dir_name = name.replace(".mp4","")
 	dir_name = name.replace(".avi","")
-	cam = cv2.VideoCapture("input/"+name)
+	cam = cv2.VideoCapture("video_input/"+name)
 	try :
 	   if not os.path.exists("frames/"+dir_name):
 	      os.makedirs("frames/"+ dir_name)

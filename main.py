@@ -2,8 +2,8 @@ from directory_module import *
 from frames import *
 if __name__ == '__main__':
    
-   input_directory_name = "input"
-   output_directory_name = "output"
+   input_directory_name = "video_input"
+   output_directory_name = "video_output"
    
    dir = Directory()
    dir.input_directory(input_directory_name)
