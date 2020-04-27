@@ -11,7 +11,7 @@ from tensorflow.keras.preprocessing.image import img_to_array, load_img
 
 
 '''
-    Creating Directiories variables ------------------------------
+    Creating Directiories variables -----------------------------------------
 '''
 base_dir = '/data'
 train_dir = os.path.join(base_dir, 'train')
@@ -39,7 +39,7 @@ print(sfw_fnames[:10])
 
 
 '''
-Building Small Covnet--------------------------------------------------
+    Building Small Covnet----------------------------------------------------
 '''
 # Our input feature map is 150x150x3: 150x150 for the image pixels, and 3 for
 # the three color channels: R, G, and B
@@ -83,7 +83,7 @@ model.compile(loss='binary_crossentropy',
               metrics=['acc'])
 
 '''
-    Data Prerocessing-------------------------------------------
+    Data Preprocessing-----------------------------------------------------
 '''
 # All images will be rescaled by 1./255
 train_datagen = ImageDataGenerator(rescale=1./255)
@@ -105,7 +105,7 @@ validation_generator = val_datagen.flow_from_directory(
         class_mode='binary')
 
 '''
-    Training Data --------------------------------------------------
+    Training Data ---------------------------------------------------------
 '''
 history = model.fit_generator(
       train_generator,
@@ -114,3 +114,30 @@ history = model.fit_generator(
       validation_data=validation_generator,
       validation_steps=50,  # 1000 images = batch_size * steps
       verbose=2)
+'''
+    Evaluating Accuracy and Loss for Model---------------------------------
+'''
+# Retrieve a list of accuracy results on training and validation data
+# sets for each training epoch
+acc = history.history['acc']
+val_acc = history.history['val_acc']
+
+# Retrieve a list of list results on training and validation data
+# sets for each training epoch
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+# Get number of epochs
+epochs = range(len(acc))
+
+# Plot training and validation accuracy per epoch
+plt.plot(epochs, acc)
+plt.plot(epochs, val_acc)
+plt.title('Training and validation accuracy')
+
+plt.figure()
+
+# Plot training and validation loss per epoch
+plt.plot(epochs, loss)
+plt.plot(epochs, val_loss)
+plt.title('Training and validation loss')
