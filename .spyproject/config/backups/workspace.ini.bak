@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['directory_module.py', 'frames.py', 'main.py', 'convoltional_neural_net_nsfw.py', 'resize_image.py']
+recent_files = ['directory_module.py', 'creating_convoltional_neural_net_model_nsfw.py', 'load_model.py', 'frames.py']
 

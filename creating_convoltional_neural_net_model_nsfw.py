@@ -66,6 +66,9 @@ x = layers.Flatten()(x)
 # Create a fully connected layer with ReLU activation and 512 hidden units
 x = layers.Dense(512, activation='relu')(x)
 
+# Add a dropout rate of 0.5
+x = layers.Dropout(0.5)(x)
+
 # Create output layer with a single node and sigmoid activation
 output = layers.Dense(1, activation='sigmoid')(x)
 
@@ -75,15 +78,14 @@ output = layers.Dense(1, activation='sigmoid')(x)
 # connected layer + sigmoid output layer
 model = Model(img_input, output)
 
-#Saving model 
-model.save('nsfw.h5')
-
+# model summary 
 model.summary()
 
 # using the RMSprop optimization algorithm
 model.compile(loss='binary_crossentropy',
               optimizer=RMSprop(lr=0.001),
               metrics=['acc'])
+
 
 '''
     Data Preprocessing-----------------------------------------------------
@@ -132,6 +134,9 @@ val_loss = history.history['val_loss']
 
 # Get number of epochs
 epochs = range(len(acc))
+
+# saving model 
+model.save('saved_models/nsfw_or_sfw_model.h5')
 
 # Plot training and validation accuracy per epoch
 plt.plot(epochs, acc)
