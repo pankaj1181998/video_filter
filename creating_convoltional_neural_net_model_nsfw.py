@@ -25,10 +25,10 @@ sfw_dir = os.path.join(train_dir, 'sfw')
 
 
 # Directory with our validation pictures sfw
-validation_cats_dir = os.path.join(validation_dir, 'nsfw')
+validation_nsfw_dir = os.path.join(validation_dir, 'nsfw')
 
 # Directory with our validation pictures sfw
-validation_dogs_dir = os.path.join(validation_dir, 'sfw')
+validation_sfw_dir = os.path.join(validation_dir, 'sfw')
 
 nsfw_fnames = os.listdir(nsfw_dir)
 print(nsfw_fnames[:10])
@@ -107,7 +107,7 @@ validation_generator = val_datagen.flow_from_directory(
         validation_dir,
         target_size=(150, 150),
         batch_size=20,
-        class_mode='binary')
+        class_mode='binary' )
 
 '''
     Training Data ---------------------------------------------------------
@@ -118,7 +118,7 @@ history = model.fit_generator(
       epochs=15,
       validation_data=validation_generator,
       validation_steps=50,  # 1000 images = batch_size * steps
-      verbose=2)
+      verbose=2 )
 '''
     Evaluating Accuracy and Loss for Model---------------------------------
 '''
