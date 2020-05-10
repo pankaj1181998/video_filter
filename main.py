@@ -14,5 +14,5 @@ if __name__ == '__main__':
    for file in os.listdir(input_directory_name+'/'):
       print(file)
       create_frames(file)
-   # video = create_frames('Funny WhatsApp Status - Minions Funny 30 Second Video -.mp4')
+      # video = create_frames('Funny WhatsApp Status - Minions Funny 30 Second Video -.mp4')
    
