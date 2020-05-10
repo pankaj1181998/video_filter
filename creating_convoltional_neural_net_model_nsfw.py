@@ -15,7 +15,7 @@ from tensorflow.keras.preprocessing.image import img_to_array, load_img
 '''
 base_dir = 'D:/Video_filtering/data'
 train_dir = os.path.join(base_dir, 'train')
-validation_dir = os.path.join(base_dir, 'validation')
+validation_dir = os.path.join(base_dir,'validation')
 
 # Directory with our training pictures nsfw
 nsfw_dir = os.path.join(train_dir, 'nsfw')
@@ -112,16 +112,19 @@ validation_generator = val_datagen.flow_from_directory(
 '''
     Training Data ---------------------------------------------------------
 '''
+
 history = model.fit_generator(
       train_generator,
-      steps_per_epoch=100,  # 2000 images = batch_size * steps
-      epochs=15,
+      steps_per_epoch=80000,  # 2000 images = batch_size * steps
+      epochs=2,
       validation_data=validation_generator,
       validation_steps=50,  # 1000 images = batch_size * steps
       verbose=2 )
+
 '''
     Evaluating Accuracy and Loss for Model---------------------------------
 '''
+
 # Retrieve a list of accuracy results on training and validation data
 # sets for each training epoch
 acc = history.history['acc']
@@ -136,7 +139,7 @@ val_loss = history.history['val_loss']
 epochs = range(len(acc))
 
 # saving model 
-model.save('saved_models/nsfw_or_sfw_model.h5')
+model.save('saved_models/nsfw_or_sfw_model2.h5')
 
 # Plot training and validation accuracy per epoch
 plt.plot(epochs, acc)
