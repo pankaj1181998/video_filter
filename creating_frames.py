@@ -1,8 +1,10 @@
 # Importing all necessary libraries 
 import cv2 
 import os
+import pandas as pd
+import numpy as np
 from moviepy.editor import VideoFileClip
-
+from creating_excels import *
 
 def create_frames(name : str):
    dir_name = name.replace(".mp4","")
@@ -20,6 +22,11 @@ def create_frames(name : str):
    file_name = file_name.replace(".avi","")
    cur_frame = 0.5
    frame_num = 1
+   
+   time_frames = []
+   list_frame_names = []
+   prediction = []
+   
    while cur_frame<total:
       try:
          cap = cv2.VideoCapture("video_input/"+name)
@@ -28,7 +35,12 @@ def create_frames(name : str):
          ret,frame = cap.read()                   # Retrieves the frame at the specified second
          cv2.imwrite('frames/'+dir_name+'/'+file_name+str(frame_num)+'.jpg', frame)          # Saves the frame as an image 
          print('Creating '+file_name+' '+str(frame_num)+'.jpg' )
+         time_frames.append(cur_frame)
+         list_frame_names.append('frames/'+dir_name+'/'+file_name+str(frame_num)+'.jpg')
+         prediction.append('nil')
          cur_frame+=0.5
          frame_num+=1
       except:
           break
+   create_excel(file_name, mydict={'timestamp':time_frames ,'name':list_frame_names,'prediction':prediction })
+   
