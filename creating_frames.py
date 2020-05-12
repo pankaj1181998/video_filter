@@ -8,7 +8,7 @@ from creating_excels import *
 
 def create_frames(name : str):
    dir_name = name.replace(".mp4","")
-   dir_name = name.replace(".avi","")
+   dir_name = dir_name.replace(".avi","")
    cam = cv2.VideoCapture("video_input/"+name)
    try :
       if not os.path.exists("frames/"+dir_name):
