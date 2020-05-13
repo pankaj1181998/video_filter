@@ -1,7 +1,7 @@
 # video_filter
 
 ### Overview
-    A Python application to analyse the content of the videos and giving back the reports after analysing the video with developed CNN network
+A Python based machine learning application to analyse the content of the videos and giving back the reports after analyses using CNN network model .
     
 ### Directory Structure
 ```
