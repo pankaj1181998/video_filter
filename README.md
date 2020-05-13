@@ -1,6 +1,7 @@
 # video_filter
 
-    A Python application to know the details of nsfw ( not safe for work content ) in the video .
+### Overview
+    A Python application to analyse the content of the videos .
     
 ### Directory Structure
 ```
