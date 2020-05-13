@@ -3,7 +3,7 @@
     A Python application to know the details of nsfw ( not safe for work content ) in the video .
     
 ### Directory Structure
-
+```
 |--data
 |--train
      |--sfw
@@ -31,7 +31,7 @@
 |--README.md
 |--requirements.txt
 |--trial.py
-     
+``` 
 ### Installation
 
 run: **pip install -r requirements.txt** in your shell.
