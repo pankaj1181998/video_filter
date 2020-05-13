@@ -32,6 +32,5 @@
      |--trial.py
      
 ### Installation
-run: **pip install -r requirements.txt** in your shell.
-
-If you have Nvidia graphic card change the tensorflow requirment to GPU (for fast performance) and install required dependencies .
+     run: **pip install -r requirements.txt** in your shell.
+     If you have Nvidia graphic card change the tensorflow requirment to GPU (for fast performance) and install required dependencies .
